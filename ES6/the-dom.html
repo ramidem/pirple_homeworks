@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The DOM - Homework Assignment # 7</title>
+    <style>
+      #rectangleWrapper {
+        padding: 50px 50px 0 50px;
+        background-color: green;
+      }
+
+      #rectangleWrapper:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      .colors {
+        background-color: #bada55;
+        margin: 10px 10px 30px 10px;
+        float: left;
+        width: 100px;
+        height: 100px;
+        text-align: center;
+      }
+
+      .colors p {
+        position: relative;
+        bottom: -85px;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>The DOM - Homework Assignment # 7</h1>
+    <h2>My favorite colors.</h2>
+
+    <div id="rectangleWrapper">
+      <div id="div1" class="colors"></div>
+      <div id="div2" class="colors"></div>
+      <div id="div3" class="colors"></div>
+      <div id="div4" class="colors"></div>
+      <div id="div5" class="colors"></div>
+      <div id="div6" class="colors"></div>
+      <div id="div7" class="colors"></div>
+      <div id="div8" class="colors"></div>
+      <div id="div9" class="colors"></div>
+      <div id="div10" class="colors"></div>
+    </div>
+
+    <script>
+      let colors = [
+        "641E16",
+        "78281F",
+        "512E5F",
+        "4A235A",
+        "154360",
+        "1B4F72",
+        "0E6251",
+        "0B5345",
+        "7D6608",
+        "784212",
+      ];
+
+      let colorDivs = document.querySelectorAll(".colors");
+
+      for (let i = 0; i < colors.length; i++) {
+        let p = document.createElement("p");
+        let hex = `#${colors[i]}`;
+        p.textContent = hex;
+        colorDivs[i].appendChild(p);
+        colorDivs[i].style.backgroundColor = hex;
+      }
+
+      console.log("Here are the rectangle IDs");
+
+      for (let colorDiv of colorDivs) {
+        console.log(colorDiv.id);
+      }
+    </script>
+  </body>
+</html>
